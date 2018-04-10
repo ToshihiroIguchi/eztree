@@ -1,9 +1,4 @@
-#ライブラリ読み込み
-#library(rpart) #CART
-library(partykit) #ctree
-library(evtree) #evtree
-library(RWeka) #J48
-library(C50) #C5.0
+
 source("eztree.R")
 
 

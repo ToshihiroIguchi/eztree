@@ -1,9 +1,9 @@
 #ライブラリ読み込み
-library(rpart) #CART
+#library(rpart) #CART
 library(partykit) #ctree
 library(evtree) #evtree
-library(RWeka) #J48
-library(C50) #C5.0
+#library(RWeka) #J48
+#library(C50) #C5.0
 
 
 #methodの正式名から略号に変換
