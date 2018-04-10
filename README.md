@@ -2,7 +2,8 @@
 Easy decision tree
 
 ### Description
-Automatic judgment of ordinal scale and nominal scale and calculation of p-value from association. Calculate the relationship between all order scales and nominal scales for explanatory variables specified in formula form and calculate p-values.
+If you do machine learning with a decision tree, expensive software or operation with CUI is necessary.
+Using this web application, you can manipulate decision trees only with GUI.
 
 ### Launch web application
 First, access [CRAN](https://cran.r-project.org/), download R and install.
