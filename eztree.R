@@ -6,6 +6,8 @@ library(evtree) #evtree
 #library(C50) #C5.0
 
 
+
+
 #methodの正式名から略号に変換
 get.short <- function(x){
   short.name <- c("ctree", "evtree", "J48", "C5.0")
@@ -36,17 +38,19 @@ get.explanatory <- function(df, purpose = NULL){
   df.name <- colnames(df)
   if(length(purpose) == 1){
     #https://www.trifields.jp/how-to-remove-an-element-with-a-string-in-a-string-vector-with-r-1776
-    df.name2 <- df.name[-which(df.name %in% purpose)]
-    ret <- split(df.name2, df.name2) 
+    ret <- df.name[-which(df.name %in% purpose)]
+    #checkboxGroupInput のchoicesに渡す値。
+    #listじゃなくてもよかったみたい。
   }else{
     ret <- df.name
   }
-  
   return(ret)
 }
 
 #ラッパー
 eztree <- function(formula, data, method = "ctree"){
+  #J48, C5.0の解析をしたいが、画像のプロットで失敗する。
+  #CARTのプロットは、関数の中に入れたreturnをpartyでプロットすると失敗する。
   if(method == "CART"){
     result <- as.party(rpart(formula, data ))
     #return(result)
@@ -73,7 +77,7 @@ eztree <- function(formula, data, method = "ctree"){
 
 #文字からformula
 chr2formula <- function(y, x){
-  ret <- paste0(y, "~", paste(x, sep = "+"))
+  ret <- paste0(y, "~", paste(x, collapse = "+"))
   ret <- as.formula(ret)
   return(ret)
   

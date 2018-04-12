@@ -8,7 +8,7 @@ server <- function(input, output, session) {
     csv_file <- reactive({read.csv(input$file$datapath)})
     output$table <- renderTable({head(csv_file(), n = 30)})
     
-    #説明変数を選択
+    #目的変数を選択
     output$ydata <- renderUI({ 
       selectInput("ydata", "Purpose variable", choices = colnames(csv_file()))
     })
@@ -16,7 +16,7 @@ server <- function(input, output, session) {
   
   observeEvent(input$ydata, {
     csv_file <- reactive({read.csv(input$file$datapath)})
-    #目的変数を選択
+    #説明変数を選択
     output$xdata <- renderUI({
       checkboxGroupInput("xdata", 
                          label = "Explanatory variable",
